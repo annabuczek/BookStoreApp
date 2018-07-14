@@ -81,4 +81,10 @@ public class CatalogActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        displayDatabaseInfo();
+    }
 }

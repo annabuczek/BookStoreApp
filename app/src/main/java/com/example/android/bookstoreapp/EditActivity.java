@@ -1,5 +1,8 @@
 package com.example.android.bookstoreapp;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.android.bookstoreapp.data.BookContract.BookCatalogEntry;
+import com.example.android.bookstoreapp.data.BookDbHelper;
 
 public class EditActivity extends AppCompatActivity {
 
@@ -58,6 +65,39 @@ public class EditActivity extends AppCompatActivity {
         });
     }
 
+    private void insertProduct() {
+        // Get information from the user input
+        String productNameString = mProductNameEditText.getText().toString();
+        String priceString = mPriceEditText.getText().toString().trim();
+        double priceValue = Double.parseDouble(priceString);
+        String quantityString = mQuantityEditText.getText().toString().trim();
+        int quantityValue = Integer.parseInt(quantityString);
+        String supplierPhoneString = mSupplierPhoneNumber.getText().toString().trim();
+
+        // Store information from the user in the ContentValues object
+        ContentValues values = new ContentValues();
+        values.put(BookCatalogEntry.COLUMN_PRODUCT_NAME, productNameString);
+        values.put(BookCatalogEntry.COLUMN_PRICE, priceValue);
+        values.put(BookCatalogEntry.COLUMN_QUANTITY, quantityValue);
+        values.put(BookCatalogEntry.COLUMN_SUPPLIER_NAME, supplierNameString);
+        values.put(BookCatalogEntry.COLUMN_SUPPLIER_PHONE, supplierPhoneString);
+
+        // Create instance of BookDbHelper class to access database
+        BookDbHelper dbHelper = new BookDbHelper(this);
+
+        // Create instance of SQLiteDatabase object to insert data to the database
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        long newRowId = db.insert(BookCatalogEntry.TABLE_NAME, null, values);
+
+        if (newRowId == -1) {
+            Toast.makeText(this, "Problem with inserting data into database", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "New row in the table created with id " + newRowId, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_activity_edit, menu);
@@ -70,6 +110,8 @@ public class EditActivity extends AppCompatActivity {
         switch(menuItemId) {
             case R.id.save_button:
                 // Save data inserted by the user to the database
+                insertProduct();
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
