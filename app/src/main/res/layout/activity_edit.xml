@@ -1,9 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/main_margin_horizontal"
+    android:layout_marginVertical="@dimen/main_margin_vertical"
+    android:orientation="vertical"
     tools:context="com.example.android.bookstoreapp.EditActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <!-- Product Name field -->
+    <EditText
+        android:id="@+id/product_name_input"
+        style="@style/SingleViewStyle"
+        android:hint="@string/product_name_hint"
+        android:inputType="text" />
+
+    <!-- Price input field -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/single_view_height">
+
+        <EditText
+            android:id="@+id/price_input"
+            style="@style/SingleViewStyle"
+            android:hint="@string/price_hint"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            style="@style/CurrencyTextViewStyle"
+            android:text="@string/currency_label" />
+    </RelativeLayout>
+
+    <!--Quantity input field -->
+    <EditText
+        android:id="@+id/quantity_input"
+        style="@style/SingleViewStyle"
+        android:hint="@string/quantity_hint"
+        android:inputType="number" />
+
+    <!-- Supplier input field -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/single_view_height"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/supplier_name_input"
+            style="@style/LabelViewStyle"
+            android:gravity="center"
+            android:text="@string/supplier_name_label" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <!-- Supplier Phone Number Input field -->
+    <EditText
+        android:id="@+id/supplier_phone_input"
+        style="@style/SingleViewStyle"
+        android:hint="@string/supplier_phone_number_hint"
+        android:inputType="phone" />
+</LinearLayout>

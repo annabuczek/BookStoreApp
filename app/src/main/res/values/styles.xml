@@ -8,4 +8,35 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Primary style of each view in activity_edit -->
+    <style name="SingleViewStyle">
+        <item name="android:layout_height">@dimen/single_view_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/single_view_padding</item>
+    </style>
+
+    <!-- Currency Text View style -->
+    <style name="CurrencyTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Small</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/currency_text_view_margin</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">@dimen/currency_text_view_margin</item>
+    </style>
+
+    <!-- Style for Supplier Label View-->
+    <style name="LabelViewStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:padding">@dimen/single_view_padding</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+
+
+
+
 </resources>

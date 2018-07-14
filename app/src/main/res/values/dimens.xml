@@ -11,5 +11,10 @@
     <dimen name="fab_margin_horizontal">32dp</dimen>
     <dimen name="fab_margin_vertical">32dp</dimen>
 
+    <!-- Edit Text dimensions -->
+    <dimen name="single_view_padding">8dp</dimen>
+    <dimen name="single_view_height">56dp</dimen>
+    <dimen name="currency_text_view_margin">16dp</dimen>
+
 
 </resources>
