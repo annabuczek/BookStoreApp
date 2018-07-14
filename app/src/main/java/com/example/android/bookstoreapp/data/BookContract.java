@@ -54,6 +54,6 @@ public final class BookContract {
          *
          * Type: TEXT
          */
-        public static final String COLUMN_SUPPLIER_PHONE = "supplier_phone_number";
+        public static final String COLUMN_SUPPLIER_PHONE = "supplier_phone";
     }
 }
