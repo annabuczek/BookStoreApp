@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="supplier_spinner">
+        <item>Supplier1</item>
+        <item>Supplier2</item>
+        <item>Supplier3</item>
+        <item>Supplier4</item>
+        <item>Supplier5</item>
+    </string-array>
+</resources>

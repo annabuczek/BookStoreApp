@@ -46,12 +46,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/supplier_name_input"
             style="@style/LabelViewStyle"
             android:gravity="center"
             android:text="@string/supplier_name_label" />
 
         <Spinner
+            android:id="@+id/supplier_name_spinner"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:spinnerMode="dropdown" />
