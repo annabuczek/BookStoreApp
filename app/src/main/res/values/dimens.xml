@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main margin for all the screens of the app -->
+    <dimen name="main_margin_horizontal">16dp</dimen>
+    <dimen name="main_margin_vertical">16dp</dimen>
+
+    <!-- Padding for text view withing CategoryActivity -->
+    <dimen name="main_text_view_padding">8dp</dimen>
+
+    <!-- FAB dimens -->
+    <dimen name="fab_margin_horizontal">32dp</dimen>
+    <dimen name="fab_margin_vertical">32dp</dimen>
+
+
+</resources>
