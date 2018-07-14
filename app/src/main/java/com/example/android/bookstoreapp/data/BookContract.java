@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
  * API Contract for Book Store App.
  */
 
-public class BookContract {
+public final class BookContract {
 
     /** Private constructor as this class should never be instantiated */
     private BookContract(){}
