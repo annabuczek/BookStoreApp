@@ -14,7 +14,7 @@
         android:id="@+id/product_name_input"
         style="@style/SingleViewStyle"
         android:hint="@string/product_name_hint"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <!-- Price input field -->
     <RelativeLayout

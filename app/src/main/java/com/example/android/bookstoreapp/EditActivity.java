@@ -1,10 +1,10 @@
 package com.example.android.bookstoreapp;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +19,13 @@ import com.example.android.bookstoreapp.data.BookContract.BookCatalogEntry;
 import com.example.android.bookstoreapp.data.BookDbHelper;
 
 public class EditActivity extends AppCompatActivity {
+
+    // Constant to specify limit of digits user will be able to input into quantity edit text field.
+    private static final int QUANTITY_MAX_LENGTH = 3;
+
+    // Constant to specify limit of digits user will be able to input
+    // into supplier phone number edit text field
+    private static final int PHONE_NUMBER_MAX_LENGTH = 9;
 
     private EditText mProductNameEditText;
     private EditText mPriceEditText;
@@ -38,11 +45,22 @@ public class EditActivity extends AppCompatActivity {
         mQuantityEditText = findViewById(R.id.quantity_input);
         mSupplierPhoneNumber = findViewById(R.id.supplier_phone_input);
 
+        // Set InputFilter.LengthFilter on mQuantityEditText to limit number of characters user may input
+        mQuantityEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(QUANTITY_MAX_LENGTH)});
+
+        // Apply InputFilter.LengthFilter on mSupplierPhoneNumber to limit number of characters user may input
+        mSupplierPhoneNumber.setFilters(new InputFilter[]{new InputFilter.LengthFilter(PHONE_NUMBER_MAX_LENGTH)});
+
+        // Apply TwoDigitsDecimalInputFilter which implements InputFilter interface
+        // in order to limit user input to mach pattern
+        // which in this case is "xxx.xx"
+        mPriceEditText.setFilters(new InputFilter[]{new TwoDigitsDecimalInputFilter(3, 2)});
+
         setupSpinner();
     }
 
     private void setupSpinner() {
-         Spinner supplierSpinner = findViewById(R.id.supplier_name_spinner);
+        Spinner supplierSpinner = findViewById(R.id.supplier_name_spinner);
 
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.supplier_spinner, android.R.layout.simple_spinner_item);
@@ -95,7 +113,6 @@ public class EditActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "New row in the table created with id " + newRowId, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
@@ -107,7 +124,7 @@ public class EditActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuItemId = item.getItemId();
-        switch(menuItemId) {
+        switch (menuItemId) {
             case R.id.save_button:
                 // Save data inserted by the user to the database
                 insertProduct();

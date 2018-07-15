@@ -3,6 +3,7 @@ package com.example.android.bookstoreapp.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.example.android.bookstoreapp.data.BookContract.BookCatalogEntry;
 
 /**
@@ -11,10 +12,14 @@ import com.example.android.bookstoreapp.data.BookContract.BookCatalogEntry;
 
 public class BookDbHelper extends SQLiteOpenHelper {
 
-    /** Version of the database */
+    /**
+     * Version of the database
+     */
     public static final int DATABASE_VERSION = 1;
 
-    /** Name of the database file */
+    /**
+     * Name of the database file
+     */
     private static final String DATABASE_NAME = "book_store.db";
 
     /**
@@ -26,7 +31,9 @@ public class BookDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    /** Called when the database is created for the first time */
+    /**
+     * Called when the database is created for the first time
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         // SQL statement to create a book_catalog table

@@ -6,26 +6,32 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.bookstoreapp.CatalogActivity">
 
-    <TextView
-        android:id="@+id/display_database_text_view"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/main_margin_vertical"
-        android:layout_marginLeft="@dimen/main_margin_horizontal"
-        android:layout_marginRight="@dimen/main_margin_horizontal"
-        android:layout_marginTop="@dimen/main_margin_vertical"
-        android:padding="@dimen/main_text_view_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/display_database_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/main_margin_vertical"
+            android:layout_marginLeft="@dimen/main_margin_horizontal"
+            android:layout_marginRight="@dimen/main_margin_horizontal"
+            android:layout_marginTop="@dimen/main_margin_vertical"
+            android:padding="@dimen/main_text_view_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/fab_margin_horizontal"
         android:layout_marginBottom="@dimen/fab_margin_vertical"
+        android:layout_marginRight="@dimen/fab_margin_horizontal"
         android:src="@drawable/ic_add_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
